@@ -14,8 +14,12 @@ const otroContador = counter()
 otroContador()      // 1
 otroContador()      // 2 */
 function counter() {
+  let contador=0
+  return function(){
+    return contador++
   }
-  
+}
+
   
 
 /* Ejercicio 2
@@ -45,15 +49,6 @@ function cacheFunction(cb) {
 // closure("hola")
 // closure("gsadas")
 // closure("hola")
-
-
-
-
-
-
-
-
-
 
 //----------------------------------------
 
