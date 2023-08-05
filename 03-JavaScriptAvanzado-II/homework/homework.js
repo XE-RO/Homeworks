@@ -14,7 +14,7 @@ const otroContador = counter()
 otroContador()      // 1
 otroContador()      // 2 */
 function counter() {
-  let contador=0
+  let contador=1
   return function(){
     return contador++
   }
@@ -43,6 +43,14 @@ otra vez cálculos que ya se hicieron anteriormente.
   
 
 function cacheFunction(cb) {
+  let cache={}
+  
+  return function(arg){
+    if(cache.hasOwnProperty(arg)){
+      return cache[arg]
+    }
+    return cache[arg]=cb(arg)
+  }
   
 }
 // let closure=cacheFunction(palabra)
@@ -73,9 +81,9 @@ function getNombre() {
   Usando el método bind() guardar, en las dos variables declaradas a continuación, dos funciones que actúen como getNombre pero retornen el nombre del instructor y del alumno, respectivamente.
 */
 
-let getNombreInstructor = getNombre.bind();
+let getNombreInstructor = getNombre.bind(instructor);
 
-let getNombreAlumno = getNombre.bind();
+let getNombreAlumno = getNombre.bind(alumno);
 
 
 /*
@@ -88,9 +96,9 @@ function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
     return delimitadorIzquierda + cadena + delimitadorDerecha;
 }
 
-let textoAsteriscos = crearCadena.bind();
-let textoGuiones = crearCadena.bind();
-let textoUnderscore = crearCadena.bind();
+let textoAsteriscos = crearCadena.bind(this,"*","*");
+let textoGuiones = crearCadena.bind(this,"-","-");
+let textoUnderscore = crearCadena.bind(this,"_","_");
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
