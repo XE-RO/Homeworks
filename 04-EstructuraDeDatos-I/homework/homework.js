@@ -23,7 +23,7 @@ function nFactorial(n) {//!5
   } 
     return  n * nFactorial(n-1)
 }
-//console.log(nFactorial(5))
+console.log(nFactorial(5))
 
 // FIBONACCI
 function nFibonacci(n) {
@@ -54,10 +54,12 @@ class Queue {
    this.array.push(args);
   }
   dequeue() {
-    return this.array.shift();
+      if(this.array.length===0){
+      return undefined
+    }this.array.shift()
   }
   size() {
-    return this.array.length;
+   return this.array.length
   }
 }
 
